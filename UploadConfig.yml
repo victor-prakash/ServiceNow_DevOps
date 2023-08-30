@@ -17,7 +17,7 @@ stages:
         applicationName: 'DevOps Test'
         uploadTarget: 'component'
         configFile: 'src/Component /Login/ChangePswValidation.tsx'
-        namePath: 'processor-api-v1.0'
+        namePath: 'ServiceNow_DevOps'
         dataFormat: 'yaml'
         autoValidate: true
         autoCommit: true
