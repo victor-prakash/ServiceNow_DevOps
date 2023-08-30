@@ -1,0 +1,24 @@
+trigger:
+  branches:
+    include:
+    - none
+stages:
+- stage: One
+  displayName: Upload Configuration Data
+  pool:     vmImage: ubuntu-latest
+  jobs:  
+  - job: A
+    displayName: Upload
+    steps:
+    - task: ServiceNow-DevOps-Config-Agent-Upload-Config@1
+      name: componentUpload
+      inputs:
+        connectedServiceName: 'MyServiceNowInstance'
+        applicationName: 'PaymentDemo'
+        uploadTarget: 'component'
+        configFile: 'main.yml'
+        namePath: 'processor-api-v1.0'
+        dataFormat: 'yaml'
+        autoValidate: true
+        autoCommit: true
+        convertPath: true
