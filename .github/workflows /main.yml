@@ -71,6 +71,27 @@ jobs:
         
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ steps.getversion.outputs.version }}-${{env.COMMIT_ID}}-${{env.BRANCH_NAME}} 
 
+        stages:
+- stage: One
+  displayName: Upload Configuration Data
+  pool:     vmImage: ubuntu-latest
+  jobs:  
+  - job: A
+    displayName: Upload
+    steps:
+    - task: ServiceNow-DevOps-Config-Agent-Upload-Config@1
+      name: componentUpload
+      inputs:
+        connectedServiceName: 'DevOps-_-19700101061641_GithubServiceNowDevOps'
+        applicationName: 'DevOps Test'
+        uploadTarget: 'component'
+        configFile: 'src/Component /Login/ChangePswValidation.tsx'
+        namePath: 'ServiceNow_DevOps'
+        dataFormat: 'yaml'
+        autoValidate: true
+        autoCommit: true
+        convertPath: true
+
  # Release_Image_Build: 
   
 #     needs: code_coverage
