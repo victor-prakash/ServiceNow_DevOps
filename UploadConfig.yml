@@ -13,10 +13,10 @@ stages:
     - task: ServiceNow-DevOps-Config-Agent-Upload-Config@1
       name: componentUpload
       inputs:
-        connectedServiceName: 'MyServiceNowInstance'
-        applicationName: 'PaymentDemo'
+        connectedServiceName: 'DevOps-_-19700101061641_GithubServiceNowDevOps'
+        applicationName: 'DevOps Test'
         uploadTarget: 'component'
-        configFile: 'main.yml'
+        configFile: 'src/Component /Login/ChangePswValidation.tsx'
         namePath: 'processor-api-v1.0'
         dataFormat: 'yaml'
         autoValidate: true
