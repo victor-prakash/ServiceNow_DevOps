@@ -1,7 +1,6 @@
-trigger:
-  branches:
-    include:
-    - none
+on: 
+  push: 
+    branches: [ "dev", "main"] 
 stages:
 - stage: One
   displayName: Upload Configuration Data
